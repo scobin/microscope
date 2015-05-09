@@ -1,10 +1,11 @@
 <template name="layout">
   <div class="container">
-    <header class="navbar navbar-default" role="navigation">
+    {{> header}}
+<!--     <header class="navbar navbar-default" role="navigation">
       <div class="navbar-header">
-        <a class="navbar-brand" href="{{pathFor 'postsList'}}">Tag Share</a>
+        <a class="navbar-brand" href="{{pathFor 'postsList'}}">{{pageTitle}}</a>
       </div>
-    </header>
+    </header> -->
     <div id="main" class="row-fluid">
       {{> yield}}
     </div>

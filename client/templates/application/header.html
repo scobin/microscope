@@ -1,0 +1,20 @@
+<template name='header'>
+  <header class="navbar navbar-default" role="navigation">
+    <div class="navbar-inner">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="{{pathFor 'postsList'}}">Tag Share</a>
+      <div class="navbar-collapse collapse">
+<!--         <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Link</a></li>
+        </ul> -->
+        <ul class="nav navbar-nav navbar-right">
+            {{> loginButtons}} <!-- here -->
+        </ul>
+      </div>
+    </div>
+  </header>
+</template>
