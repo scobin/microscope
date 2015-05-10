@@ -34,3 +34,5 @@ Accounts.ui.config({
         saveToProfile: false
     }]
 });
+
+accountsUIBootstrap3.setLanguage('zh-TW');
