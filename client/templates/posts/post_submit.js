@@ -8,7 +8,20 @@ Template.postSubmit.events({
       message: $(e.target).find('[name=message]').val()
     }
     
-    post._id = Posts.insert(post);
-    Router.go('postPage', post);
+    Meteor.call('postInsert', // server method
+                post, // data
+                function(error, result) { // callback func.
+      // display the error to the user and abort
+      if (error)
+        return alert(error.reason);
+      // show this result but route anyway
+      if (result.postExists)
+        alert('This link has already been posted');
+
+    });
+    
+    
+    Router.go('postsList');
+//    Router.go('postPage', {_id: result._id});
   }
 });
