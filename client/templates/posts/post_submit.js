@@ -22,3 +22,17 @@ Template.postSubmit.events({
     });
   }
 });
+
+Template.postSubmit.created = function() {
+  //reset
+  Session.set('postSubmitErrors', {});
+}
+
+Template.postSubmit.helpers({
+  errorMessage: function(field) {
+    return Session.get('postSubmitErrors')[field];
+  },
+  errorClass: function(field) {
+    return !!Session.get('postSubmitErrors')[field] ? 'has-error' : '';
+  }
+});
