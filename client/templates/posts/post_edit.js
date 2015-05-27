@@ -12,7 +12,7 @@ Template.postEdit.events({
                  {$set: postProperties}, //data
                  function(error) { // call back func.
       if (error) {
-        alert(error.reason);
+        throwError(error.reason);
       } else {
         // go to the postPage
         Router.go('postPage', {_id: currentPostId});
