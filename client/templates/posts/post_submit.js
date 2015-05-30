@@ -8,6 +8,10 @@ Template.postSubmit.events({
       message: $(e.target).find('[name=message]').val()
     }
     
+    var errors = validatePost(post);
+    if (errors.title || errors.url) {
+      return Session.set('postSubmitErrors', errors);
+    }
     Meteor.call('postInsert', // server method
                 post, // data
                 function(error, result) { // callback func.
@@ -23,8 +27,9 @@ Template.postSubmit.events({
   }
 });
 
-Template.postSubmit.created = function() {
-  //reset
+//run this function when template be created.
+Template.postSubmit.onCreated = function() {
+  //reset postSubmitErrors
   Session.set('postSubmitErrors', {});
 }
 
