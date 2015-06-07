@@ -10,9 +10,16 @@
       </button>
       <a class="brand" href="{{pathFor 'postsList'}}">Tag Share</a>
     </div>
-    <div class="navbar-collapse collapse">
-      <ul class="nav">
-        {{#if currentUser}}<li class="active"><a href="{{pathFor 'postSubmit'}}">New</a></li>{{/if}}
+    <div class="collapse navbar-collapse" id="navigation">
+      <ul class="nav navbar-nav">
+        {{#if currentUser}}
+          <li> 
+            <a href="{{pathFor 'postSubmit'}}">New</a>
+          </li>
+          <li class="dropdown">
+            {{> notifications}}
+          </li>
+        {{/if}}
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>{{> loginButtons}} </li><!-- here -->
