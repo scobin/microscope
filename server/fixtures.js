@@ -71,4 +71,20 @@ if (Posts.find().count() === 0) {
       votes: 0
     });
   }
+  
+  for (var i = 0; i < 10 ;i++) {
+    Quizs.insert({
+      num: i,
+      title:'Test quiz #' + i,
+      selection1: i,
+      selection2: i+1,
+      selection3: i+2,
+      selection4: i+3,
+      ans: 'sel1',
+      author: 'xxx',
+      isValid: true,
+      submitted: new Date(now - i * 3600 * 1000 + 1),
+    });
+    console.log(i);
+  }
 }

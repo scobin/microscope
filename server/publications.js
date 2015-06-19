@@ -19,3 +19,8 @@ Meteor.publish('comments', function(postId) {
 Meteor.publish('notifications', function() {
   return Notifications.find({userId: this.userId, read: false});
 });
+
+Meteor.publish('randQuizs', function(){
+  var randNum = Math.floor( Math.random() * (10 - 1 + 1) ) + 1;
+  return Quizs.find({num: randNum, isValid: true});
+});

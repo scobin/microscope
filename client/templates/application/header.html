@@ -26,6 +26,9 @@
             {{> notifications}}
           </li>
         {{/if}}
+        <li class="{{activeRouteClass 'quizGame'}}">
+            <a href="{{pathFor 'quizGame'}}">QuizGame</a>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>{{> loginButtons}} </li><!-- here -->
