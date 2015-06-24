@@ -15,6 +15,10 @@
   cursor: pointer;
 }
 
+.txt-large {
+  font-size: 20px;
+}
+
 body {
   background: #eee;
   color: #666666; }
