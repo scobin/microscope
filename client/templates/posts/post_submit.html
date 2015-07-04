@@ -5,9 +5,11 @@
       <label class="control-label" for="url">URL</label>
       <div class="controls">
         <input name="url" type="text" value="" placeholder="YOUR URL"/>
+        <button type="button" class="btn btn-primary checkUrl">Check</button>
         <span class="help-block">{{errorMessage 'url'}}</span>
       </div>
     </div>
+
     <!-- Title-->
     <div class="form-group {{errorClass 'title'}}">
       <label class="control-label" for="title">Title</label>
@@ -17,7 +19,7 @@
       </div>
     </div>
     
-    <!-- Title-->
+    <!-- message-->
     <div class="control-group">
       <label class="control-label" for="message">Message</label>
       <div class="controls">

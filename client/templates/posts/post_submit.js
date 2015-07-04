@@ -24,6 +24,19 @@ Template.postSubmit.events({
 
       Router.go('postPage', {_id: result._id});
     });
+  },
+  'click .checkUrl': function(e) {
+    e.preventDefault();
+    Meteor.call('checkUrl',
+      $(e.target).prev().val(),
+      function(error, result) {
+        if (error) {
+          console.log("error", error);
+        } else {
+          console.log(result);
+        }
+
+      });
   }
 });
 
@@ -35,7 +48,7 @@ Template.postSubmit.onCreated = function() {
 
 Template.postSubmit.helpers({
   errorMessage: function(field) {
-    return Session.get('postSubmitErrors')[field];
+    return !!Session.get('postSubmitErrors')[field] ? Session.get('postSubmitErrors')[field] : '';
   },
   errorClass: function(field) {
     return !!Session.get('postSubmitErrors')[field] ? 'has-error' : '';
