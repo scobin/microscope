@@ -14,7 +14,7 @@
     <div class="form-group {{errorClass 'title'}}">
       <label class="control-label" for="title">Title</label>
       <div class="controls">
-        <input name="title" type="text" value="" placeholder="Name your post"/>
+        <textarea name="title" class="title" type="text" value="{{urlTitle}}" placeholder="Name your post"></textarea>
         <span class="help-block">{{errorMessage 'title'}}</span>
       </div>
     </div>
@@ -23,7 +23,7 @@
     <div class="control-group">
       <label class="control-label" for="message">Message</label>
       <div class="controls">
-        <textarea name="message" type="text" value=""></textarea>
+        <textarea name="message" class="message" type="text" value=""></textarea>
       </div>
     </div>
     

@@ -170,3 +170,11 @@ body {
   margin-bottom: 5px;
   pointer-events: auto;
 }
+
+.title, .message{
+  width: 100%;
+}
+
+.quizGamePage button.btn, .refPosts{
+  display: none;
+}

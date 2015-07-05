@@ -25,15 +25,16 @@ Template.postSubmit.events({
       Router.go('postPage', {_id: result._id});
     });
   },
+
   'click .checkUrl': function(e) {
     e.preventDefault();
     Meteor.call('checkUrl',
       $(e.target).prev().val(),
       function(error, result) {
         if (error) {
-          console.log("error", error);
+          throwError(error.reason);
         } else {
-          console.log(result);
+          Session.set('urlTitle', result);
         }
 
       });
@@ -44,13 +45,20 @@ Template.postSubmit.events({
 Template.postSubmit.onCreated = function() {
   //reset postSubmitErrors
   Session.set('postSubmitErrors', {});
+  Session.set('urlTitle', {});
 }
 
 Template.postSubmit.helpers({
   errorMessage: function(field) {
-    return !!Session.get('postSubmitErrors')[field] ? Session.get('postSubmitErrors')[field] : '';
+    if (Session.get('postSubmitErrors')) 
+      return !!Session.get('postSubmitErrors')[field] ? Session.get('postSubmitErrors')[field] : '';
+    // return !!Session.get('postSubmitErrors')[field] ? Session.get('postSubmitErrors')[field] : '';
   },
   errorClass: function(field) {
-    return !!Session.get('postSubmitErrors')[field] ? 'has-error' : '';
+    if (Session.get('postSubmitErrors')) 
+      return !!Session.get('postSubmitErrors')[field] ? 'has-error' : '';
+  },
+  urlTitle: function() {
+    return !!Session.get('urlTitle') ? Session.get('urlTitle') : '';
   }
 });

@@ -21,6 +21,11 @@ Meteor.publish('notifications', function() {
 });
 
 Meteor.publish('randQuizs', function(){
-  var randNum = Math.floor( Math.random() * (10 - 1 + 1) ) + 1;
+  var randNum = Math.floor( Math.random() * Quizs.find().count() ) + 1;
   return Quizs.find({num: randNum, isValid: true});
+});
+
+Meteor.publish('refPosts', function() {
+  // cehck(id, String);
+  return Posts.find();
 });
