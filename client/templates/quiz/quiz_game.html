@@ -9,8 +9,15 @@
     {{/if}}
     <button type="button" class="btn btn-primary next">NEXT</button>
   </div>
+  <br>
   <div class="refPosts">
+  <h2>関連記事</h2>
   	{{#each refPosts}}
+  	  {{> postItem}}
+  	{{/each}}
+  <br>
+  <h2>おすすめ記事</h2>
+  	{{#each recPosts}}
   	  {{> postItem}}
   	{{/each}}
   </div>

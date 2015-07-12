@@ -5,8 +5,11 @@ Template.quizGame.helpers({
     return Quizs.find().count() > 0 ;
   },
   refPosts: function() {
-    return Posts.find({_id: {$in:Quizs.findOne().refPostIds}});
+    return Posts.find({id: {$in: Quizs.findOne().refPostIds}});
     // return Posts.find();
+  },
+  recPosts: function() {
+    return Posts.find({category: Quizs.findOne().category});
   }
 });
 
@@ -37,5 +40,10 @@ Template.quizGame.events({
     }
     $(".next").show();
     $(".refPosts").show();
+  },
+  'click .next': function(e) {
+    e.preventDefault();
+    //reload page
+    location.reload();
   }
 });
