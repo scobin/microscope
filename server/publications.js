@@ -22,7 +22,7 @@ Meteor.publish('notifications', function() {
 
 Meteor.publish('randQuizs', function(){
   var randNum = Math.floor( Math.random() * Quizs.find().count() );
-  return Quizs.find({num: randNum, isValid: true});
+  return Quizs.find({id: randNum, isValid: 1});
 });
 
 Meteor.publish('refPosts', function() {
