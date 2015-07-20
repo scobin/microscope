@@ -1,3 +1,14 @@
+// declare cheerio library.
+var cheerio = Meteor.npmRequire('cheerio');
+
+Meteor.methods({
+  checkUrl: function(url) {
+    check(url, String);
+    html = Meteor.http.get(url);
+    var $ = cheerio.load(html.content);
+    return $('title').text();
+  }
+});
 // if (Posts.find().count() === 0) {
 //   var now = new Date().getTime();
   
