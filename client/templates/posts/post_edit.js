@@ -47,5 +47,24 @@ Template.postEdit.events({
       // go to postsList
       Router.go('home');
     }
+  },
+  'submit .quizForm': function(e) {
+    e.preventDefault();
+    var quiz = {
+      category: this.category,
+      refPostIds: [this.id],
+      title: $(e.target).find('[name=quizTitle]').val(),
+      selection1: $(e.target).find('[name=quizSel1]').val(),
+      selection2: $(e.target).find('[name=quizSel2]').val(),
+      selection3: $(e.target).find('[name=quizSel3]').val(),
+      selection4: $(e.target).find('[name=quizSel4]').val(),
+      ans: $(e.target).find('.ansStatus.active [name=ansOpt]').val()
+    };
+    var errors = validateQuiz(quiz);
+    if (errors.quizTitle || errors.quizSel1 || errors.quizSel2
+      || errors.quizSel3 || errors.quizSel4 || errors.quizAns) {
+      return Session.set('postSubmitErrors', errors);
+    }
+    // quiz =
   }
 });
